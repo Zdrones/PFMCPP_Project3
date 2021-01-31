@@ -36,51 +36,51 @@ Sub Object 1: Steering Wheel
     Name 4 things you'll find on the:    Steering Wheel
         1) paddle shifters
         2) 'cruise control' controls
-        3) 
-        4) 
+        3) car's icon with a horn
+        4) lighting control
     Name 2 things you can do with the:   Steering Wheel
         1) adjust cruise control settings.
-        2)
+        2) press the icon button to make horn
         
 Sub Object 2: Instrument Cluster
     Name 4 things you'll find on the:   Instrument Cluster
-        1)
-        2)
-        3)
-        4)
+        1) speedometer
+        2) warning indicators
+        3) temperature indicator
+        4) tachometer
     Name 3 things you can do with the:   Instrument Cluster
-        1)
-        2)
-        3)
+        1) check out speed
+        2) check out amount of fuel
+        3) check out problems of the car 
     
 Sub Object 3: Environment Controls
     Name 3 things you'll find on the:    Environment Controls
-        1)
-        2)
-        3)
+        1) air conditioner
+        2) temperature control    
+        3) air position control 
     Name 3 things you can do with the:   Environment Controls
-        1)
-        2)
-        3)
+        1) turn on or off the air conditioner
+        2) adjust the temperature 
+        3) adjust the postion of air
 
 Sub Object 4: Infotainment System
     Name 3 things you'll find on the:    Infotainment System
-        1)
-        2)
-        3)
+        1) touchscreen  
+        2) media display
+        3) clock
     Name 3 things you can do with the:   Infotainment System
-        1)
-        2)
-        3)
+        1) play music
+        2) control the air conditioner
+        3) check out time
 
 Sub Object 5: Seat 
     Name 3 things you'll find on the:    Seat
-        1)
-        2)
-        3)
+        1) seat belt
+        2) seat belt extender
+        3) head support
     Name 2 things you can do with the:   Seat
-        1)
-        2)
+        1) sit to drive 
+        2) gurantee safe
 */
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
