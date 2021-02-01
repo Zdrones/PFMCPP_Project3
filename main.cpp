@@ -54,59 +54,59 @@ Thing: Car Wash
  */
 
 /*
-Thing 1)
+Thing 1) computer
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) type of computers
+    2) type of CPU
+    3) type of GPU
+    4) amount of RAM 
+    5) amount of SSD
 3 things it can do:
-    1)
-    2)
-    3)
+    1) compile code language
+    2) store data information
+    3) connet people through internet
  */
 
 /*
-Thing 2)
+Thing 2) room
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) number of books
+    2) number of desks
+    3) number of bathrooms
+    4) number of windows
+    5) number of guitars
 3 things it can do:
-    1)
-    2)
-    3)
+    1) store stuffs
+    2) offer a space for resting
+    3) offer a space for workstations
  */
 
 /*
-Thing 3)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+Thing 3) coat
+5 properties: 
+    1) number of size
+    2) type of color
+    3) type of material
+    4) number of price
+    5) days of returns
 3 things it can do:
-    1)
-    2)
-    3)
+    1) warm people
+    2) dress up people
+    3) help people show their taste
  */
 
 /*
-Thing 4)
+Thing 4) cats
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) number of feet
+    2) color of eyes
+    3) color of hair
+    4) times of running away
+    5) times of looking outside a day
 3 things it can do:
-    1)
-    2)
-    3)
+    1) run
+    2) scratch sofa
+    3) catch up birds
  */
 
 
