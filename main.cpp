@@ -72,11 +72,11 @@ Part1 will be broken up into 5 separate steps
 /*
 Thing 1) computer
 5 properties:
-    1) type of computers
-    2) type of CPU
-    3) type of GPU
-    4) amount of RAM 
-    5) amount of SSD
+    1) memory size
+    2) hard disk size
+    3) CPU speed
+    4) weight in pounds
+    5) number of USB ports
 3 things it can do:
     1) compile code language
     2) store data information
@@ -101,8 +101,8 @@ Thing 2) room
 Thing 3) coat
 5 properties: 
     1) number of size
-    2) type of color
-    3) type of material
+    2) number of pockets
+    3) days of exchange
     4) number of price
     5) days of returns
 3 things it can do:
@@ -115,8 +115,8 @@ Thing 3) coat
 Thing 4) cat
 5 properties:
     1) number of feet
-    2) color of eyes
-    3) color of hair
+    2) weight in pounds
+    3) times of sleeping
     4) times of running away
     5) times of looking outside a day
 3 things it can do:
@@ -126,79 +126,79 @@ Thing 4) cat
  */
 
 /*
-Thing 5)
+Thing 5) monitor
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) size in inches
+    2) weight in pounds
+    3) resolution
+    4) refresh rate
+    5) amount of power consumed
 3 things it can do:
-    1)
-    2)
-    3)
+    1) display pictures
+    2) make up other products
+    3) enlarge
  */
 
 /*
-Thing 6)
+Thing 6) speakers
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) number of amplifiers
+    2) frequency response
+    3) maximum SPL
+    4) system total latency
+    5) weight in g
 3 things it can do:
-    1)
-    2)
-    3)
+    1) amplify sound
+    2) convert digital signal to analog signal
+    3) saturate sound
  */
 
 /*
-Thing 7)
+Thing 7) LED
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) brightness
+    2) number of lights
+    3) Voltage
+    4) Wattage
+    5) item weight in pounds
 3 things it can do:
-    1)
-    2)
-    3)
+    1) generate light
+    2) save energy
+    3) make up other products
  */
 
 /*
-Thing 8)
+Thing 8) wifi module
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) item weight in ounces
+    2) power input in voltage
+    3) operation frequency
+    4) max speed
+    5) width in inches
 3 things it can do:
-    1)
-    2)
-    3)
+    1) transmit  signal
+    2) make up other products
+    3) offer wirless network
  */
 
 /*
-Thing 9)
+Thing 9) applications
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) number of users
+    2) price for pro 
+    3) size in mb
+    4) rating
+    5) version
 3 things it can do:
-    1)
-    2)
-    3)
+    1) store contents
+    2) interact with people
+    3) send notifications
  */
 
 /*
 Thing 10) smart TV
 5 properties:
-    1) Display
+    1) monitor
     2) speakers
     3) LED
     4) wifi module
