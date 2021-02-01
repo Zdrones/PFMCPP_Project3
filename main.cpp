@@ -96,7 +96,7 @@ Thing 3) coat
  */
 
 /*
-Thing 4) cats
+Thing 4) cat
 5 properties:
     1) number of feet
     2) color of eyes
@@ -110,17 +110,17 @@ Thing 4) cats
  */
 
 /*
-Thing 10)
+Thing 10) smart TV
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) Display
+    2) speakers
+    3) LED
+    4) wifi module
+    5) applications
 3 things it can do:
-    1)
-    2)
-    3)
+    1) display TV channels
+    2) play sound
+    3) run applications
  */
 
 /*
