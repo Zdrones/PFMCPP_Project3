@@ -27,12 +27,12 @@ I recommend compiling after finishing each one and making sure it compiles
 without errors or warnings before moving on to writing the next UDT. 
 
 1) define an empty struct for each of your 10 types. i.e.:
-*/
+
 struct CarWash
 {
 
 };
-/*
+
 2) Copy your 5 properties & 3 actions into the empty struct body.
     - comment them out.
     
@@ -130,6 +130,27 @@ Thing 1) computer
     3) connet people through internet
  */
 
+struct Computer
+{
+    //memory size
+    int memorySize = 16;
+    //hard disk size
+    int hardDiskSize = 512;
+    //CPU speed
+    float cpuSpeed = 4.3f;
+    //weight in pounds
+    float weight = 14.04f;
+    //number of USB ports
+    int usbPort = 3;
+
+    //compile code language
+    void compileCodeLanguage(bool compiledLanguage = true, bool error = false);
+    //store data information
+    int storeDataInformation(int diskSize = 512);
+    //connet people through internet
+    void connectPeopleThroughInternet(int internetSpeed = 100);
+};
+
 /*
 Thing 2) room
 5 properties:
@@ -143,6 +164,52 @@ Thing 2) room
     2) offer a space for resting
     3) offer a space for workstations
  */
+
+struct Room
+{
+    //number of books
+    int numBook = 20;
+    //number of desks
+    int numDesk = 1;
+    //number of bathrooms
+    int numBathroom = 1;
+    //number of windows
+    int numWindows = 2;
+    //number of guitars
+    int numGuitars = 3;
+
+    //room for workstation
+    struct Studio
+    {
+        //studio szie
+        int studioSize = 35;
+        //got acoustic treatment
+        bool acousticTreatment = true;
+        //studio name
+        std::string studioName = "LHYB studio";
+        //number of speakers system
+        float numSpeakerSystem = 5.1f;
+        //working hours a day
+        int workHour = 8;
+
+        //offer service
+        void offerService(int serviceOption = 5, int extraAddOnOption = 3);
+        //charge money
+        float chargeMoney(int basicServicePrice = 200, int studioBookingPrice = 100);
+        //comsume electricity
+        float consumeElectricity(float electricityMonthly, float electricityMonthlyPrice);
+    };
+    
+    //store stuffs
+    void storeStuff(bool storeRoom = false);
+    //offer a space for resting
+    void offerRestSpace(bool bedInRoom = false, bool sofaInRoom = true);
+    //offer a space for workstation  
+    void offerWorkSpace(bool workstation, Studio studioSize, Studio acousticTreatment);
+
+    //a member variable whose type is a UDT
+    Studio artistBeingServed;
+};
 
 /*
 Thing 3) coat
@@ -158,12 +225,33 @@ Thing 3) coat
     3) help people show their taste
  */
 
+struct Coat
+{
+    //number of size
+    char coatSize = 'L';
+    //number of pockets
+    int numPocket = 3;
+    //days of exchange
+    int dayExchange = 15;
+    //number of price
+    float coatPrice = 50.2f;
+    //days of return
+    int dayReturn = 15;
+
+    //warm people 
+    void warmPeople(std::string materialType);
+    //dress up people
+    void dressUpPeople(std::string color, bool goodMatch = true);
+    //help people show their taste
+    void showPeopleTaste(bool fashion = false, bool vintage = true, bool goodMatch = true);
+};
+
 /*
 Thing 4) cat
 5 properties:
     1) number of feet
     2) weight in pounds
-    3) times of sleeping
+    3) hours of sleeping
     4) times of running away
     5) times of looking outside a day
 3 things it can do:
@@ -171,6 +259,48 @@ Thing 4) cat
     2) scratch sofa
     3) catch up birds
  */
+
+struct Cat
+{
+    //number of feet
+    int numFeet = 4;
+    //weight in pounds
+    float catWeight;
+    //time of sleeping
+    float sleepHour = 12.5;
+    //times of running away
+    int runAway = 4;
+    //times of looking outside a day
+    int lookOutsideTime = 6;
+
+    struct Owner
+    {
+        //gender of the owner
+        char ownerGender;
+        //name of the owner
+        std::string ownerName;
+        //working hours of the owner
+        float ownerWorkHour = 8.0;
+        //income per month of the owner
+        float ownerIncomeMonth;
+        //age of the owner
+        int ownerAge;
+
+        //feed the cat
+        void feedCat(std::string catFoodBrand, int feedCatTime = 2);
+        //play around with the cat
+        void playWithCat(bool playByFunnyStick = true, float playTime = 30);
+        //clean up the cat's toilet
+        void cleanToilet(int cleanTime = 2);
+    };
+
+    //run
+    void catRun(int howFast);
+    //scratch sofa
+    void catScratchSofa(bool sofaScratches = true, bool catScratcher = false, int numCatScratcher = 0);
+    //catch up birds
+    void catCatchBird(std::string birdKind, std::string placeFound);
+};
 
 /*
 Thing 5) monitor
@@ -183,8 +313,29 @@ Thing 5) monitor
 3 things it can do:
     1) display pictures
     2) make up other products
-    3) enlarge
+    3) extend laptops' monitors
  */
+
+struct Monitor
+{   
+    //size in inches
+    float monitorSize =  24.0f;
+    //weight in pounds
+    float monitorWeight = 7.00f;
+    //resolution
+    int monitorResolution = 1080;
+    //refresh rate
+    int monitorRefreshRate = 75;
+    //amount of power consumed
+    int monitorPowerConsumed;
+    
+    //display pictures
+    void displayPicture(int monitorResolution = 1080, bool monitorHD = true);
+    //make up other products
+    void monitorFormOthers(bool computerNeeded = true, bool playStationNeeded = true);
+    //extend laptops' monitors
+    void extentLaptop(bool buildWorkstation = true);
+};
 
 /*
 Thing 6) speakers
@@ -196,24 +347,64 @@ Thing 6) speakers
     5) weight in g
 3 things it can do:
     1) amplify sound
-    2) convert digital signal to analog signal
+    2) connect phones through bluetooth
     3) saturate sound
  */
 
-/*
-Thing 7) LED
-5 properties:
-    1) brightness
-    2) number of lights
-    3) Voltage
-    4) Wattage
-    5) item weight in pounds
-3 things it can do:
-    1) generate light
-    2) save energy
-    3) make up other products
- */
+struct Speaker
+{
+    //number of amplifiers
+    int numAmplifier = 2;
+    //frequency response
+    int lowestFrequencyResponse = 45;
+    int highestFrequencyResponse = 22000;
+    //maximum SPL
+    int maxSPL = 107;
+    //system total latency
+    float systemTotalLatency = 1.02f;
+    //weight in g
+    int speakerWeight = 800;
 
+    //amplify sound
+    void amplifySound(int volume = 5);
+    //connect phones through bluetooth
+    void connectPhones(bool bluetoothModule = true);
+    //saturate sound
+    void saturateSound(bool bassDrive = true, bool filterOn = false);
+};
+/*
+Thing 7) remote control
+5 properties:
+    1) price of the remote control
+    2) item weight in ounces
+    3) length in inches
+    4) width in inches
+    5) batteries last time in the remote control in months
+3 things it can do:
+    1) be compatible with TV
+    2) control TV
+    3) Play games
+ */
+struct RemoteControl
+{
+    //price of the remote control
+    float remotePrice = 25.95f;
+    //item weight in ounces
+    float remoteWeight = 5.6f;
+    //length in inches
+    float remotelength = 7.0f;
+    //width in inches
+    float remoteWidth = 1.5f;
+    //batteries last time in the remote control in months
+    int remoteBatteryLast = 6;
+
+    //be compatible with TV
+    void compatibleTV(int maxSetupDevice = 4, int setupStep = 5);
+    //control TV
+    void controlTV(int volumeButton = 4, int channelButton = 4, int confirmButton = 1);
+    //Play games
+    void playGame(bool gameInTV = true, bool moreDifficult = true);
+};
 /*
 Thing 8) wifi module
 5 properties:
@@ -228,6 +419,27 @@ Thing 8) wifi module
     3) offer wirless network
  */
 
+struct WifiModule
+{
+    //item weight in ounces
+    float wifiWeight = 3.52f;
+    //power input in voltage
+    int wifiPowerInput;
+    //operation frequency
+    float wifiOperationFrequency1 = 2.4f;
+    float wifiOperationFrequency2 = 5.0f;
+    //max speed
+    int wifiMaxSpeed = 1200;
+    //width in inches
+    float wifiWidth = 4.72f;
+
+    //transmit  signal
+    void transmitSignal();
+    //make up other products
+    void wifiFormOthers(bool smartTelevisonNeeded = true, bool computerNeeded = true);
+    //offer wirless network
+    void wirlessNetwork(bool internetCableNeeded = false, int WifiMaxSignal = 3);
+};
 /*
 Thing 9) applications
 5 properties:
@@ -242,12 +454,33 @@ Thing 9) applications
     3) send notifications
  */
 
+struct Application
+{
+    //number of users
+    int numUser;
+    //price for pro
+    int proPrice = 39;
+    //size in mb
+    float appSize = 145.4f;
+    //rating
+    float appRating = 4.2f;
+    //version
+    double appVersion = 3.33;
+
+    //store contents
+    void storeContent();
+    //interact with people
+    void interactWithPeople(bool goodInteractiveDesign = true, bool goodUserExperience = true);
+    //send notifications
+    void sendNotification(bool notificationTurnOn = true, int notificationTime = 3);
+};
+
 /*
 Thing 10) smart TV
 5 properties:
     1) monitor
     2) speakers
-    3) LED
+    3) remote control
     4) wifi module
     5) applications
 3 things it can do:
@@ -256,6 +489,25 @@ Thing 10) smart TV
     3) run applications
  */
 
+struct SmartTV
+{   //monitor
+    Monitor monitorTV;
+    //speakers
+    Speaker speakerTV;
+    //remote control
+    RemoteControl remoteTV;
+    //wifi module;
+    WifiModule wifiTV;
+    //application
+    Application appTV;
+    
+    //display TV channels
+    void displayTVChannel(int numChannel = 120, int numChannelCharged = 40);
+    //play sound
+    void playSound(bool speakers = true, int maxVolume = 100);
+    //run applications
+    void runApplication(bool androidSystem = true, bool appDownloadable = true);
+};
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
