@@ -126,7 +126,7 @@ struct Person
     Foot leftFoot;
     Foot rightFoot;
 
-    void run(int, bool);
+    void run(int howFast, bool startWithLeftFoot);
 };
 
 void Person::run(int howFast, bool startWithLeftFoot)
@@ -157,7 +157,7 @@ void Person::run(int howFast, bool startWithLeftFoot)
 
 
 
-
+// 1)
 struct Computer
 {
     int memorySize = 16;
@@ -168,12 +168,51 @@ struct Computer
 
 
     void compileCodeLanguage(bool compiledLanguage = true, bool error = false);
-    int storeDataInformation(int diskSize = 512);
-    void connectPeopleThroughInternet(int internetSpeed = 100);
+    int storeDataInformation(int diskSize = 512, int informationSize = 256);
+    void connectPeopleThroughInternet(int internetSpeed = 100, bool internetSpeedFast = true);
 };
 
+void Computer::compileCodeLanguage(bool compiledLanguage, bool error)
+{
+    if(compiledLanguage == true)
+    {
+        error = false;
+    }
+    else
+    {
+        error = true;
+    }
+
+    error = false;
+}
+
+int Computer::storeDataInformation(int diskSize, int informationSize)
+{
+    if(diskSize >= informationSize)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+void Computer::connectPeopleThroughInternet(int internetSpeed, bool internetSpeedFast)
+{
+    if(internetSpeed >= 100)
+    {
+        internetSpeedFast = true;
+    }
+    else
+    {
+        internetSpeedFast = false;
+    }
+}
 
 
+
+// 2)
 struct Room
 {
     int numBook = 20;
@@ -189,24 +228,78 @@ struct Room
         std::string studioName = "LHYB studio";
         float numSpeakerSystem = 5.1f;
         int workHour = 8;
-
+        
 
         void offerService(int serviceOption = 5, int extraAddOnOption = 3);
-        float chargeMoney(int basicServicePrice = 200, int studioBookingPrice = 100);
+        int chargeMoney(int basicServicePrice = 200, int studioBookingPrice = 50, int deadline = 5);
         float consumeElectricity(float electricityMonthly, float electricityMonthlyPrice);
     };
     
 
-    void storeStuff(bool storeRoom = false);
+    void storeStuff(bool storeRoom = false, int areaLeftForStore = 5);
     void offerRestSpace(bool bedInRoom = false, bool sofaInRoom = true);
-    void offerWorkSpace(bool workstation, Studio studioSize, Studio acousticTreatment);
+    void offerWorkSpace(bool workstation, Studio size, Studio acoustic);
 
-
-    Studio artistBeingServed;
+    
 };
 
+void Room::Studio::offerService(int serviceOption, int extraAddOnOption)
+{
+    serviceOption = 5;
+    extraAddOnOption = 3;
+}
+
+int Room::Studio::chargeMoney(int basicServicePrice, int studioBookingPrice, int deadline)
+{
+    basicServicePrice = 200;
+    studioBookingPrice = 50;
+    deadline = 5;
+
+    return basicServicePrice + studioBookingPrice * deadline;
+}
+
+float Room::Studio::consumeElectricity(float electricityMonthly, float electricityMonthlyPrice)
+{
+    return electricityMonthly * electricityMonthlyPrice;
+}
+
+void Room::storeStuff(bool storeRoom, int areaLeftForStore)
+{
+    if(storeRoom == true)
+    {
+        std::cout << "store whatever you want!" << std::endl;
+    }
+    else if(storeRoom == false && areaLeftForStore >= 5)
+    {
+        std::cout << "Still okay to Store something important!" << std::endl;
+    }
+    else
+    {
+        std::cout << "Find somewhere else!" << std::endl;
+    }
+}
+
+void Room::offerRestSpace(bool bedInRoom, bool sofaInRoom)
+{
+    bedInRoom = false;
+    sofaInRoom = true;
+}
+
+void Room::offerWorkSpace(bool workstation, Room::Studio size, Room::Studio acoustic)
+{
+    if(workstation == true)
+    {
+        size.studioSize = 35;
+        acoustic.acousticTreatment = true;  
+    }
+    else
+    {
+        return;
+    }
+}
 
 
+// 3)
 struct Coat
 {
     char coatSize = 'L';
@@ -216,13 +309,57 @@ struct Coat
     int dayReturn = 15;
 
 
-    void warmPeople(std::string materialType);
-    void dressUpPeople(std::string color, bool goodMatch = true);
+    void warmPeople(bool keepWarmth, std::string materialType);
+    void dressUpPeople(std::string color, bool goodToMatch = true);
     void showPeopleTaste(bool fashion = false, bool vintage = true, bool goodMatch = true);
 };
 
+void Coat::warmPeople(bool keepWarmth, std::string materialType)
+{
+    if(keepWarmth == true)
+    {
+        materialType = 1;
+    }
+    else
+    {
+        materialType = 2;
+    }
+}
+
+void Coat::dressUpPeople(std::string color, bool goodToMatch)
+{
+    if(goodToMatch == true)
+    {
+        color = "black";
+        color = "white";
+        color = "blue";
+    }
+    else
+    {
+        color = "red";
+        color = "green";
+    }
+}
+
+void Coat::showPeopleTaste(bool fashion, bool vintage, bool goodMatch)
+{
+    if(fashion == false && vintage == true)
+    {
+        goodMatch = true;
+    }
+    else if (fashion == true && vintage == true)
+    {
+        goodMatch = true;
+    }
+    else
+    {
+        goodMatch = false;
+    }
+}
 
 
+
+// 4)
 struct Cat
 {
     int numFeet = 4;
@@ -241,7 +378,7 @@ struct Cat
 
 
         void feedCat(std::string catFoodBrand, int feedCatTime = 2);
-        void playWithCat(bool playByFunnyStick = true, float playTime = 30);
+        void playWithCat(bool playByFunnyStick = true, int playTime = 30);
         void cleanToilet(int cleanTime = 2);
     };
 
@@ -251,8 +388,55 @@ struct Cat
     void catCatchBird(std::string birdKind, std::string placeFound);
 };
 
+void Cat::Owner::feedCat(std::string catFoodBrand, int feedCatTime)
+{
+    catFoodBrand = "Orjien";
+    feedCatTime = 2;
+}
+
+void Cat::Owner::playWithCat(bool playByFunnyStick, int playTime)
+{
+    if(playByFunnyStick == true || playTime >= 30)
+    {
+        std::cout << "Good Owner!" << std::endl;
+    }
+    else
+    {
+        return;
+    }
+}
+
+void Cat::Owner::cleanToilet(int cleanTime)
+{
+    cleanTime = 2;
+}
+
+void Cat::catRun(int howFast)
+{
+    howFast = 30; //mile per hour
+}
+
+void Cat::catScratchSofa(bool sofaScratches, bool catScratcher, int numCatScratcher)
+{
+    if(catScratcher == true || numCatScratcher >= 1)
+    {
+        sofaScratches = false;
+    }
+    else
+    {
+        sofaScratches = true;
+    }
+}
+
+void Cat::catCatchBird(std::string birdKind, std::string placeFound)
+{
+    birdKind = {};
+    placeFound = {};
+}
 
 
+
+// 5)
 struct Monitor
 {   
     float monitorSize =  24.0f;
@@ -262,13 +446,50 @@ struct Monitor
     int monitorPowerConsumed;
     
 
-    void displayPicture(int monitorResolution = 1080, bool monitorHD = true);
-    void monitorFormOthers(bool computerNeeded = true, bool playStationNeeded = true);
-    void extentLaptop(bool buildWorkstation = true);
+    void displayPicture(int monitorResolution_ = 1080, bool monitorHD = true);
+    void monitorFormOthers(int numPlayStation = 1, bool playStationNeedMonitor = true);
+    void extentLaptop(bool buildWorkstation = true, int numMonitorExtended = 2);
 };
 
+void Monitor::displayPicture(int monitorResolution_, bool monitorHD)
+{
+    if(monitorResolution_ >= 1080)
+    {
+        monitorHD = true;
+    }
+    else
+    {
+        monitorHD = false;
+    }
+}
+
+void Monitor::monitorFormOthers(int numPlayStation, bool playStationNeedMonitor)
+{
+    if(numPlayStation >= 1)
+    {
+        playStationNeedMonitor = true;
+    }
+    else
+    {
+        playStationNeedMonitor = false;
+    }
+}
+
+void Monitor::extentLaptop(bool buildWorkstation, int numMonitorExtended)
+{
+    if(buildWorkstation == true)
+    {
+        numMonitorExtended = 2;
+    }
+    else
+    {
+        numMonitorExtended = 0;
+    }
+}
 
 
+
+// 6)
 struct Speaker
 {
     int numAmplifier = 2;
@@ -279,13 +500,50 @@ struct Speaker
     int speakerWeight = 800;
 
 
-    void amplifySound(int volume = 5);
-    void connectPhones(bool bluetoothModule = true);
-    void saturateSound(bool bassDrive = true, bool filterOn = false);
+    void amplifySound(int volume = 5, bool loud = false);
+    int connectPhones(bool bluetoothModule = true);
+    void saturateSound(bool bassDrive = true);
 };
 
+void Speaker::amplifySound(int volume, bool loud)
+{
+    if(volume >= 7)
+    {
+        loud = true;
+    }
+    else
+    {
+        loud = false;
+    }
+}
+
+int Speaker::connectPhones(bool bluetoothModule)
+{
+    if(bluetoothModule == true)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+void Speaker::saturateSound(bool bassDrive)
+{
+    if(bassDrive == true)
+    {
+        std::cout << "Party Time!" << std::endl;
+    }
+    else
+    {
+        std::cout << "Real Speakers" << std::endl;
+    }
+}
 
 
+
+// 7)
 struct RemoteControl
 {
     float remotePrice = 25.95f;
@@ -295,13 +553,47 @@ struct RemoteControl
     int remoteBatteryLast = 6;
 
 
-    void compatibleTV(int maxSetupDevice = 4, int setupStep = 5);
+    int compatibleTV(int maxSetupDevice = 4, int setupStep = 5);
     void controlTV(int volumeButton = 4, int channelButton = 4, int confirmButton = 1);
-    void playGame(bool gameInTV = true, bool moreDifficult = true);
+    void playGame(bool TVGameAvailable = true, bool smartTV = true);
 };
 
+int RemoteControl::compatibleTV(int maxSetupDevice, int setupStep)
+{
+    if(maxSetupDevice >= 1)
+    {
+        setupStep = maxSetupDevice * 5;
+    }
+    else
+    {
+        setupStep = 0;
+    }
+
+    return {};
+}
+
+void RemoteControl::controlTV(int volumeButton, int channelButton, int confirmButton)
+{
+    volumeButton = 4;
+    channelButton = 4;
+    confirmButton = 1;
+}
+
+void RemoteControl::playGame(bool TVGameAvailable, bool smartTV)
+{
+    if(TVGameAvailable == true)
+    {
+        smartTV = true;
+    }
+    else
+    {
+        smartTV = false;
+    }
+}
 
 
+
+// 8)
 struct WifiModule
 {
     float wifiWeight = 3.52f;
@@ -312,13 +604,58 @@ struct WifiModule
     float wifiWidth = 4.72f;
 
 
-    void transmitSignal();
-    void wifiFormOthers(bool smartTelevisonNeeded = true, bool computerNeeded = true);
-    void wirlessNetwork(bool internetCableNeeded = false, int WifiMaxSignal = 3);
+    void transmitSignal(int distance = 10, int numWifiSignal = 1, int numWifiMaxSignal = 3);
+    void wifiFormOthers(bool TVNeeded = true, bool smartTV = true);
+    void wirlessNetwork(bool manyFloors = true, bool wifiRangeExtenderNeeded = true);
 };
 
+void WifiModule::transmitSignal(int distance, int numWifiSignal, int numWifiMaxSignal)
+{
+    if(distance >= 5)
+    {
+        numWifiSignal = numWifiMaxSignal - 1;
+    }
+    else if(distance >= 10)
+    {
+        numWifiSignal = numWifiMaxSignal - 1 * 2;
+    }
+    else if (distance >= 15)
+    {
+        numWifiSignal = 0;
+    }
+    else
+    {
+        numWifiSignal = numWifiMaxSignal;
+    }
+}
+
+void WifiModule::wifiFormOthers(bool TVNeeded, bool SmartTV)
+{
+    if(TVNeeded == true)
+    {
+        SmartTV = true;
+    }
+    else
+    {
+        SmartTV = false;
+    }
+}
+
+void WifiModule::wirlessNetwork(bool manyFloors, bool wifiRangeExtenderNeeded)
+{
+    if(manyFloors == true)
+    {
+        wifiRangeExtenderNeeded = true;
+    }
+    else
+    {
+        wifiRangeExtenderNeeded = false;
+    }
+}
 
 
+
+// 9)
 struct Application
 {
     int numUser;
@@ -326,15 +663,62 @@ struct Application
     float appSize = 145.4f;
     float appRating = 4.2f;
     double appVersion = 3.33;
+    
 
     
-    void storeContent();
-    void interactWithPeople(bool goodInteractiveDesign = true, bool goodUserExperience = true);
-    void sendNotification(bool notificationTurnOn = true, int notificationTime = 3);
+    void chargeMoney(bool videoApp = true, float ProMemberPrice = 19.99f, bool advertisment = false);
+    void interactWithPeople(bool goodUIDesign = true, bool goodUserExperience = true);
+    int sendNotification(int usingTime = 40, int notificationTimePerDay = 3);
 };
 
+void Application::chargeMoney(bool videoApp, float ProMemberPrice, bool advertisment)
+{
+    if(videoApp == true)
+    {
+        ProMemberPrice = 19.99f;
+        advertisment = false;
+    }
+    else
+    {
+        ProMemberPrice = 0.0f;
+        advertisment = true;
+    }
+}
+
+void Application::interactWithPeople(bool goodUIDesign, bool goodUserExperience)
+{
+    if(goodUIDesign == true && goodUserExperience == true)
+    {
+        std::cout << "Great Application!" << std::endl;
+    }
+    else
+    {
+        return;
+    }
+}
+
+int Application::sendNotification(int usingTime, int notificationTimePerDay)
+{
+    if(usingTime <= 40)
+    {
+        notificationTimePerDay = 2;
+    }
+    else if(usingTime <= 20)
+    {
+        notificationTimePerDay = 4;
+        std::cout << "Annoying!" << std::endl;
+    }
+    else
+    {
+        notificationTimePerDay = 0;
+    }
+    
+    return {};
+}
 
 
+
+// 10)
 struct SmartTV
 {   
     Monitor monitorTV;
@@ -345,9 +729,39 @@ struct SmartTV
     
 
     void displayTVChannel(int numChannel = 120, int numChannelCharged = 40);
-    void playSound(bool speakers = true, int maxVolume = 100);
-    void runApplication(bool androidSystem = true, bool appDownloadable = true);
+    void playSound(bool speakers = true, int maxControlVolume = 100);
+    void runApplication(bool appStore = true, bool appDownloadable = true);
 };
+
+void SmartTV::displayTVChannel(int numChannel, int numChannelCharged)
+{
+    numChannel = 120;
+    numChannelCharged = 40;
+}
+
+void SmartTV::playSound(bool speakers, int maxControlVolume)
+{
+    if(speakers == true)
+    {
+        maxControlVolume = 100;
+    }
+    else
+    {
+        return;
+    }
+}
+
+void SmartTV::runApplication(bool appStore, bool appDownloadable)
+{
+    if(appStore == true)
+    {
+        appDownloadable = true;
+    }
+    else
+    {
+        appDownloadable = false;
+    }
+}
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
